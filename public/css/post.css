@@ -1,49 +1,97 @@
+
+body {
+    background-color: #f8f9fa;
+}
+
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
+    transition: all 0.3s ease;
 }
 
-.card:hover {
+.post-item .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-.post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-.btn-action {
-    width: 38px;
-}
-
-.skeleton-loader {
+.display-4 {
     position: relative;
-    overflow: hidden;
-    background-color: #e9ecef;
-    border-radius: 4px;
+    display: inline-block;
 }
 
-.skeleton-loader::after {
-    content: "";
+.display-4::after {
+    content: '';
     position: absolute;
-    top: 0;
-    right: 0;
+    width: 0;
+    height: 2px;
     bottom: 0;
     left: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
-    animation: shimmer 1.5s infinite;
+    background-color: #0d6efd;
+    transition: width 0.3s ease;
 }
 
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+.display-4:hover::after {
+    width: 100%;
 }
 
-.toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1050;
+.toast {
+    opacity: 0.9;
+}
+
+.toast:hover {
+    opacity: 1;
+}
+
+.posts-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.posts-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.posts-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.posts-container::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 10px;
+}
+
+.posts-container::-webkit-scrollbar-thumb:hover {
+    background: #6c757d;
+}
+
+@media (max-width: 991.98px) {
+    .posts-container {
+        max-height: 50vh;
+    }
+}
+
+#editFormContainer {
+    transition: all 0.3s ease-in-out;
+}
+
+#editFormContainer.d-none {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+#editFormContainer:not(.d-none) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.current-image-preview {
+    transition: all 0.3s ease;
+}
+
+.current-image-preview:hover {
+    background-color: #e9ecef !important;
 }
